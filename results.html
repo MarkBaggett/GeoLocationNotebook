@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Werejugo Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="http://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+    <script src="http://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="http://unpkg.com/leaflet-kml@1.0.1/L.KML.js"></script>
+</head>
+
+<body>
+
+  <div style="width: 100vw; height: 85vh" id="map"></div>
+
+  <div class="container">
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Date/Time</th>
+          <th>Source</th>
+          <th>Coordinate</th>
+          <th>Map Link</th>
+        </tr>
+      </thead>
+      <tbody>
+              <tr class="result_row"><td>2020-03-06 09:29:05.221000</td><td>Windows Diagnostice Event 6100 test,(Unnamed,grovy,kalki,FBI-VAN5,DESKTOP-NH41,DIRECT-T02-10T,RES-ANS-738,Verizon-MiFi8L-DCE,MyIphone,For</td><td>33.4183727,-82.15896240000001</td><td><a href="https://www.google.com/maps/@33.4183727,-82.15896240000001,19z">Show on Google Maps</a></td></tr><tr class="result_row"><td>2019-03-03 10:38:46.923000</td><td>.RSACONFERENCE 00:00:5E:00:01:01-First-Connect</td><td>40.45789337,-111.93411255</td><td><a href="https://www.google.com/maps/@40.45789337,-111.93411255,19z">Show on Google Maps</a></td></tr><tr class="result_row"><td>2019-03-04 20:16:01.725000</td><td>.RSACONFERENCE 00:00:5E:00:01:01-Last-Connect</td><td>40.45789337,-111.93411255</td><td><a href="https://www.google.com/maps/@40.45789337,-111.93411255,19z">Show on Google Maps</a></td></tr><tr class="result_row"><td>2019-05-21 17:39:44.491000</td><td>SEC573 7 C4:12:F5:5D:90:C7-First-Connect</td><td>-35.29946136,149.12487793</td><td><a href="https://www.google.com/maps/@-35.29946136,149.12487793,19z">Show on Google Maps</a></td></tr><tr class="result_row"><td>2019-05-23 22:56:10.240000</td><td>SEC573 7 C4:12:F5:5D:90:C7-Last-Connect</td><td>-35.29946136,149.12487793</td><td><a href="https://www.google.com/maps/@-35.29946136,149.12487793,19z">Show on Google Maps</a></td></tr><tr class="result_row"><td>2020-03-06 09:29:05</td><td>WLAN Event 8001 MyIphone</td><td>33.4183727,-82.15896240000001</td><td><a href="https://www.google.com/maps/@33.4183727,-82.15896240000001,19z">Show on Google Maps</a></td></tr><tr class="result_row"><td>2020-03-06 08:10:24</td><td>WLAN Event 8001 MyIphone</td><td>33.4183727,-82.15896240000001</td><td><a href="https://www.google.com/maps/@33.4183727,-82.15896240000001,19z">Show on Google Maps</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script>
+$(".switch").on("click",function() {
+  $($(this).closest("tr").find(".result_map")[0]).toggle()
+})
+</script>
+
+<script type="text/javascript">
+  // Make basemap
+  const map = new L.Map('map', { center: new L.LatLng(58.4, 43.0), zoom: 11 });
+  const osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+  map.addLayer(osm);
+
+  const parser = new DOMParser();
+  const kml = parser.parseFromString(`<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <name>Wifi Map</name>
+        <description>Visual Wigle Location</description>
+        <Placemark id="3">
+            <name>3 Events between 2020-03-06 08:10:24 and 2020-03-06 09:29:05.221000</name>
+            <description>test,(Unnamed,grovy,kal,FBI-VAN5,DESKTOP-NHKKH41,DIRECT-TQRM102-10msUT,RES-ANS-738,Verizon-MF88L-DC7E,MyIphone,For,test,(Unnamed,grovy,kal,FBI-VAN5,DESKTOP-NH41,DIRECT-TQ02-10msUT,RES-ANS-738,Verizon-MF88L-DC7E,MyIphone,For,test,(Unnamed,grovy,kalki,FBI-VAN5,DESKTOP-NHKKH41,DIRECT-TQRM102-10msUT,RES-ANS-738,Verizon-MF88L-DC7E,MyIphone,For</description>
+            <Point id="2">
+                <coordinates>-82.15896240000001,33.4183727,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="5">
+            <name>2 Events between 2019-03-03 10:38:46.923000 and 2019-03-04 20:16:01.725000</name>
+            <description>wigle search (40.45789337, -111.93411255, 149, 'PERO'),wigle search (40.45789337, -111.93411255, 149, 'PERO')</description>
+            <Point id="4">
+                <coordinates>-111.93411255,40.45789337,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="7">
+            <name>2 Events between 2019-05-21 17:39:44.491000 and 2019-05-23 22:56:10.240000</name>
+            <description>wigle search (-35.29946136, 149.12487793, 11, 'SANS port scanning network'),wigle search (-35.29946136, 149.12487793, 11, 'SANS port scanning network')</description>
+            <Point id="6">
+                <coordinates>149.12487793,-35.29946136,0.0</coordinates>
+            </Point>
+        </Placemark>
+    </Document>
+</kml>
+`, 'text/xml');
+  const track = new L.KML(kml);
+  map.addLayer(track);
+
+  const bounds = track.getBounds();
+  map.fitBounds(bounds);
+</script>
+
+</body>
+</html>
