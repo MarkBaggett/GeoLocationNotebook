@@ -6,7 +6,7 @@ Register to attend the Free Workshop:
 | DATE AND TIME | LINK |
 |---------------|------|
 |May 19th @ 1:00 PM EST |  [HERE](https://www.sans.org/webcasts/hacker-art-thou-hands-on-python-workshop-geolocating-attackers-115340)|
-|Future Dates | TBA | 
+|July 14th @ 1:00 PM EST | TBA | 
 
 You will need this virtual machine to fully participate in the lab. You can download that [HERE](https://tinyurl.com/locatehacker)​ with the password "`whereRUhacker?​`" 
 
