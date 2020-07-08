@@ -5,8 +5,8 @@ Register to attend the Free Workshop:
 
 | DATE AND TIME | LINK |
 |---------------|------|
-|May 19th @ 1:00 PM EST |  [HERE](https://www.sans.org/webcasts/hacker-art-thou-hands-on-python-workshop-geolocating-attackers-115340)|
-|July 14th @ 1:00 PM EST | TBA | 
+|May 19th @ 1:00 PM EST |  [EXPIRED](https://www.sans.org/webcasts/hacker-art-thou-hands-on-python-workshop-geolocating-attackers-115340)|
+|July 14th @ 1:00 PM EST | [HERE](https://www.sans.org/webcasts/tech-tuesday-workshop-hacker-art-thou-hands-on-python-workshop-geolocating-attackers-back-popular-demand-116075)| 
 
 You will need this virtual machine to fully participate in the lab. You can download that [HERE](https://tinyurl.com/locatehacker)​ with the password "`whereRUhacker?​`" 
 
